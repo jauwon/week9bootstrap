@@ -2,131 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel ="stylesheet" href="node_modules/boostrap/dist/css/boostrap.css">
-</head> 
-<body>
-    
-<div>
-    <a href="index.html">Home</a>
-    <a href="index.html">About</a>
-    <a href="index.html">Photos</a>
-    <a href="index.html">Contact</a>
+    <title>HEALTH WORLD</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+   <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+  />
+
+   
+
+</head>
+
+    <!-- heres what our to do interface will look like, we want 
+    1. A section where a user can insert a new to do and it to a table 
+    but also we want tobe able to have in that table a place where a to do item can be deleted once completed!!!  -->
+
+    <!-- To start lets start with a form that the user will be able to input a new to do list, and within that form we will be taking full advantage of bootstrap
+    and we are going to use a card in it and it will have a row with multiple colums  -->
+
+    <!-- we will first set the body class="container"  -->
+    <body class="container-fluid">
+    <!-- <img src="gray.floaty.dancer.png" height="300px"> <img src="purple.queen.png" height="300px"> <img src="Ring.Ling.png" height="300px"> -->
+    <h2>Welcome to Healthcare World</h2>
+    <br>
+
+    <!-- then we will then create a new div, and this div will be our card again card is a bootstrap component and add some style to start!  -->
+    <div class="card">
+    <!-- We will then create a card body that will hold the bulk of our content -->
+    <div class="card-body">
+        <div class="row">
+            <!-- Then we will house all of out colums within here we will have them be all the same length so they will not hold a number.  -->
+            <div class="col-sm">
+                <!-- then within here we will add another div and this one going to start to use form group, cuz of the way that it formats it.  -->
+                <div class="form-group">
+                    <!-- Then we create a label  -->
+                    <label for="birthdate">Birth date</label>
+                    <!-- Then below we will input the input that inputs the start date.  -->
+                    <input type="date" class="form-control" id="birthdate">
+                </div>
+                    <!-- So this 2nd colum is going to be for the birth date  -->
+            </div>
+            <!-- We will copy it twice  -->
+            <div class="col-sm">
+                <div class="form-group">
+                    <!-- Then we create a label  -->
+                    <label for="today's date">Today's Date</label>
+                    <!-- Then below we will input the input that inputs the today's date.  -->
+                    <input type="date" class="form-control" id="today's date">
+                </div>
+            </div>
+        </div>
+        <!-- Below is where the information will be inputted/entered for the to do  -->
+        <div class="row">
+            <!-- then within this we will have a class for col-sm  -->
+            <div class="col-sm">
+                <div class="form-group">
+                    <!-- Then we create a label  -->
+                    <label for="new-task">name</label>
+                    <!-- Since this is where the information is inputted we will need to change the input type to text and ids accordingly then we will 
+                    input a place holder as well   -->
+                    <input type="text" class="form-control" id="new-task" placeholder="name">
+                </div>
+            </div>
+            <!-- Then under this we will create our button, which will be id 'add' and we will be addin the id so it can be located by js later  -->
+            <!-- my button is different from the video but idc I like it better! -->
+            <button id="add" class="btn btn-primary form-control">Log</button>
+            </div>
+        </div>
     </div>
-    </nav>
-    
-    
-    <body>
-        <link rel="stylesheet" href="index.css">
-        <h1>About</h1>
-        <h1>Photos</h1>
-        <article>
-            <p>Welcome to Healthworld</p>
-            <h3> </h3>
-            <ul>
-                <a href="https://www.everydayhealth.com/healthy-living/health-fitness-and-telemedicine-are-part-of-record-tech-revenue-forecast/"target="_blank">
-                    <li>Staying Healthy</li>
-                </a>
-                <img src="ces-trends-to-watch-2022-1440x810.jpg">
-               
-                <a href="https://online.hbs.edu/blog/post/what-is-healthcare-economics"target="_blank">
-                
-                    <li>Healthcare Economics</li>
-                </a>
-                <img src="D730ED9CC0AF1A0C18B3499EF75E86D7.webp"target="_blank">
-                
-                <li>Healthcare Heroes</li>
-                
-                <a href="https://www.istockphoto.com/photos/healthcare-workers"target="_blank">
-                    
-                    <img src="2018-1-02healthcare-cybersecurity-role.jpg">
-                  
-                </ul>
-                <h3> Everyday Extraordinary People </h3>
-                
-                
-                <div>
-                <form action="/action_page.php" method="get" name="myForm">
-                  <label for="fname">First name:</label>
-                  <input type="text" id="fname" name="fname"><br><br>
-                  <label for="lname">Last name:</label>
-                  <input type="text" id="lname" name="lname"><br><br>
-                  <label type="email">Email:</label>
-                  <input tyep="text" id="email"name="email"><br><br>
-                  <input type="button" onclick="formSubmit()" value="Send form data!">
-                </form>
-                   
-                </div>
+</div>
 
-                <style>
-                    table, th, td {
-                      border: 1px solid black;
-                    }
-                    </style>
+<!-- So down here we will create a table for our to dos to be added to accordingly and just like the other html elements we want to reference it to an id
+so it can be properly accesssed later on -->
+<!-- After the id we are going to use some bootstrap style elements to style it accordingly -->
+<table id="list" class="table table-dark table-striped">
+    <!-- now we will start with our table rows, and our table headers! -->
+    <tr>
+        <!-- for our headers we will create one for the Healthcare Assessments, Date of Assessment, Results, and the Ations; our actions will have our buttons
+             inside of it. -->
+        <th>Healthcare Assessments</th>
+        <th>Date of Assessment</th>
+        <th>Results</th>
+        <th>Actions</th>
+    </tr>
+</table>
 
-                <div>
-                   <h2> Our Services </h2>
-                   <h4>Mental Assessment</h4>
-                   <h4>Emotional Assessment</h4>
-                   <h4>Physical Assessment</h4>
-                    
-                   <table>
-                        <tr>
-                          <td>Evaluation Mental</td>
-                          <td>$100</td>
-                        </tr>
-                        <tr>
-                          <td>Evaluation Emotional</td>
-                          <td>$80</td>
-                        </tr>
-                        <tr>
-                            <td> Evaluation Physical</td>
-                            <td>$150</td>
-
-                        </tr>
-
-                      </table>
+<!-- So now our html stage is set then we head over to our javascript file and help put our functionality in action! -->
 
 
 
 
-
-
-
-                </div>
-
-
-
-
-
-
-
-                   
-                   
-                   
-                    <h2>Login Page</h2><br>   
-                    <div class="login">   
-                    <form id="login" method="get" action="login.php">   
-                        <label><b>User Name </b>    
-                    </label>      <input type="text" name="Uname" id="Uname" placeholder="Username">    
-                  <br><br>    
-                 <label><b>Password         
-                </b>    
-                 </label>    
-                <input type="Password" name="Pass" id="Pass" placeholder="Password">   
-                <br><br>    
-                 <input type="button" name="log" id="log" value="Submit">       
-                    <br><br>        
-                <input type="checkbox" id="check">   
-                
-    
-    
-    
-    
-    
-                </a>
-             </ul>
-            </body>
+    <script src="index.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</body>
 </html>
